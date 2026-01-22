@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Could Have Been Our Anniversary</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      background:#0b1220 radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+      font-family:Arial,Helvetica,sans-serif;
+      color:#fff;
+      display:flex;justify-content:center;align-items:center;
+      overflow:hidden
+    }
+    /* ---------- twinkling stars ---------- */
+    .stars{
+      position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none
+    }
+    .star{
+      position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;
+      animation:twinkle 4s infinite
+    }
+    @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
+    /* ---------- card with transparent background image ---------- */
+    .card{
+      position:relative;
+      width:90%;max-width:500px;
+      background:rgba(17,17,17,.55) url("photo.jpeg") center/cover no-repeat;
+      background-blend-mode:overlay;
+      border:2px solid #FFD700;border-radius:15px;
+      padding:30px 25px;
+      box-shadow:0 10px 30px rgba(0,0,0,.6);
+      text-align:center
+    }
+    .card h2{color:#FFD700;margin-bottom:15px;font-size:1.5rem}
+    .card p{line-height:1.8;margin-bottom:20px;font-size:1.05rem}
+    .card em{color:#FFD700;font-style:italic}
+    /* ---------- buttons ---------- */
+    .btn{
+      display:inline-block;margin:8px 5px;padding:10px 25px;
+      border:2px solid #FFD700;border-radius:12px;
+      color:#fff;text-decoration:none;font-weight:bold;
+      transition:all .3s ease
+    }
+    .btn:hover{background:#FFD700;color:#111;transform:scale(1.05)}
+    .her{border-color:#e53935;background:rgba(229,57,53,.15)}
+    .her:hover{background:#e53935;color:#fff}
+    .us{border-color:#43a047;background:rgba(67,160,71,.15)}
+    .us:hover{background:#43a047;color:#fff}
+  </style>
+</head>
+<body>
+
+<!-- starfield -->
+<div class="stars" id="stars"></div>
+
+<!-- card -->
+<div class="card">
+  <h2>Could Have Been Our Anniversary</h2>
+  <p>
+    I send my appreciation for the human you were in my life.<br>
+    You restored the energy I thought I lost.<br>
+    I am glad I met you in a world so vast, so far, so infinite,<br>
+    in a very impossible place too.<br>
+    <em>Pero nunca aprendí a retenerte, y aún duele en mi corazón.</em><br>
+    I know I am being a nuisance.<br>
+    Sorry… this will be the last.
+  </p>
+  <a href="https://youtu.be/_x3UltzBxjw?list=PL3DLpR6yxArZdfzuv54wqcbXHA9QkTr2_" target="_blank" class="btn her">Her</a>
+  <a href="https://youtu.be/B3Z4XGAxJB0?list=RDGMEM6ijAnFTG9nX1G-kbWBUCJA&t=8" target="_blank" class="btn us">Us</a>
+</div>
+
+<script>
+  /* ---- generate random stars ---- */
+  const stars=document.getElementById('stars');
+  for(let i=0;i<150;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    s.style.left=Math.random()*100+'%';
+    s.style.top=Math.random()*100+'%';
+    s.style.animationDelay=Math.random()*4+'s';
+    stars.appendChild(s);
+  }
+</script>
+
+</body>
+</html>
